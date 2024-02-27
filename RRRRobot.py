@@ -44,9 +44,7 @@ class RRRRobot:
 
     @check_if_initialized
     def sleep(self, seconds: float):
-        end_time = time() + seconds
-        while time() < end_time:
-            pass
+        time.sleep(seconds)
 
     @check_if_initialized
     def move_to_position(self, position: Vector3Cartesian):
