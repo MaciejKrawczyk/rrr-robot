@@ -39,7 +39,7 @@ class RRRRobot:
 
     def initialize(self):
         self._is_initialized = True
-        Process(target=worker_process, args=(self.commands_queue,)).start()
+        Process(target=worker_process, args=(self.commands_queue, self)).start()
         Process(target=run_server, args=(self.commands_queue,)).start()
 
     @check_if_initialized
@@ -50,7 +50,9 @@ class RRRRobot:
 
     @check_if_initialized
     def move_to_position(self, position: Vector3Cartesian):
-        pass
+        print("started moving to position", position.__str__())
+        time.sleep(1)
+        print("moved to position successfully", position.__str__())
 
     @check_if_initialized
     def move_to_angles(self, angles: Vector3Configuration):
